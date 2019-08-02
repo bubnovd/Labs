@@ -1,5 +1,7 @@
-# Лабы для EVE-NG
-В файле `RoutingCisco.unl` находится схема сети для экспорта в эмулятор EVE-NG. Используемые устройства: L3-ADVENTERPRISEK9-M-15.4-2T, L2-ADVENTERPRISEK9-M-15.2-20150703
+В файле `RoutingCisco.unl` находится схема сети для импорта в эмулятор EVE-NG.
+Используемые устройства:
+* Router - `L3-ADVENTERPRISEK9-M-15.4-2T`
+* Switch - `L2-ADVENTERPRISEK9-M-15.2-20150703`
 
 
 ![Lab1](https://github.com/devi1/Labs/blob/master/CCNA/OSPF/lab1.png) 
