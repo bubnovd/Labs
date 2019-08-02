@@ -1,6 +1,6 @@
 [<img width=30 height=20 src="../../images/en.png">](README.en.md)  [<img width=30 height=20 src="../../images/ru.png">](README.md)
 # OSPF
-В файле `RoutingCisco.unl` находится схема сети для импорта в эмулятор EVE-NG.
+В файле `CCNA_OSPF.zip` находится схема сети для импорта в эмулятор EVE-NG.
 Используемые устройства:
 * Router - `L3-ADVENTERPRISEK9-M-15.4-2T`
 * Switch - `L2-ADVENTERPRISEK9-M-15.2-20150703`
