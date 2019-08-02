@@ -1,4 +1,7 @@
 # Лабы для EVE-NG
+В файле `RoutingCisco.unl` находится схема сети для экспорта в эмулятор EVE-NG. Используемые устройства: L3-ADVENTERPRISEK9-M-15.4-2T, L2-ADVENTERPRISEK9-M-15.2-20150703
+
+
 ![Lab1](https://github.com/devi1/Labs/blob/master/CCNA/OSPF/lab1.png) 
 ## Основы OSPF
 1. Создать loopback интерфейс на каждом роутере. Назначить ему адрес 192.168.0.x/32, где x - номер роутера. Например, 192.168.0.3/32 для R3
