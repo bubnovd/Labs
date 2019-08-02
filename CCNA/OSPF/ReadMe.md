@@ -22,7 +22,7 @@
 16. Проверить, что все роутеры получили маршрут по умолчанию
 
 ## Области OSPF
-17. Разбить домен OSPF на области (регионы). R3 и R4 оставить в backbone. R1 - internal router в Area 1. R2, R5 - ABR ![Areas](https://github.com/devi1/LABs/CCNA/OSPF/areas.png)
+17. Разбить домен OSPF на области (регионы). R3 и R4 оставить в backbone. R1 - internal router в Area 1. R2, R5 - ABR ![Areas](https://github.com/devi1/Labs/CCNA/OSPF/areas.png) 
 18. Проверить, что интерфейсы маршрутизаторов принадлежат корректным областям
 19. Проверить состояние соседства/смежности
 20. Какие изменения произойдут в таблице маршрутизации R1?
