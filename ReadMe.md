@@ -1,4 +1,4 @@
-[<img width=30 height=20 src="/images/eng.png">](README.eng.md)[<img width=30 height=20 src="/images/rus.png">](README.md)
+[<img width=30 height=20 src="/images/en.png">](README.en.md)[<img width=30 height=20 src="/images/ru.png">](README.md)
 # Лабы по сетевым технологиям
 Лабы для укрепления знаний по сетевым технологиям. На текущий момент выкладываю лабы по темам курса ICND2 (200-105). 
 
