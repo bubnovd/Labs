@@ -1,3 +1,5 @@
+[<img src="http://www.google.com.au/images/nav_logo7.png">](http://google.com.au/)
+[<img src="/images/eng.png">](README.eng.md)
 # Лабы по сетевым технологиям
 Лабы для укрепления знаний по сетевым технологиям. На текущий момент выкладываю лабы по темам курса ICND2 (200-105). 
 
