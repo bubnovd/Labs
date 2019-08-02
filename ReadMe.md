@@ -11,4 +11,4 @@
 ### Список лабораторок
 * CCNA
   * Routing
-    * [OSPF](Labs/CCNA/OSPF/)
+    * [OSPF](/CCNA/OSPF/)
