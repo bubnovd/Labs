@@ -6,7 +6,8 @@ Used devices:
 * Switch - `L2-ADVENTERPRISEK9-M-15.2-20150703`
 
 *Because of limits of Cisco IOU images all network interfaces have only ten-megabites Ethernet. In original labs in pt. 6 need to set reference-bandwidth in 10 Gbps. But in this labs set to 10 Mbps*
-Lab Answers with [Cisco](Cisco.Answer_key.en.md)
+
+Lab Answers with [Cisco](Cisco. Answer_key.en.md)
 
 ![Lab1](https://github.com/devi1/Labs/blob/master/CCNA/OSPF/lab1.png) 
 ## OSPF Basic Configuration

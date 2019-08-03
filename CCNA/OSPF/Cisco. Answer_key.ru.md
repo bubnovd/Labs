@@ -1,4 +1,4 @@
-[<img width=30 height=20 src="../../images/en.png">](Cisco.Answer_key.en.md)  [<img width=30 height=20 src="../../images/ru.png">](Cisco.Answer_key.ru.md)
+[<img width=30 height=20 src="../../images/en.png">](Cisco. Answer_key.en.md)  [<img width=30 height=20 src="../../images/ru.png">](Cisco. Answer_key.ru.md)
 ## OSPF Basic Configuration
 
 1.  Создать loopback интерфейс на каждом роутере. Назначить ему адрес 192.168.0.x/32, где x - номер роутера. Например, 192.168.0.3/32 для R3.
