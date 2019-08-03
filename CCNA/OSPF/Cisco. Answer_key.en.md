@@ -329,7 +329,7 @@ O 203.0.113.0/24 [110/4000] via 10.0.3.2, 00:01:46, FastEthernet3/0
 [110/4000] via 10.0.0.2, 00:01:46, FastEthernet0/0
 ```
 14. Configure a default static route on R4 to the Internet via the service provider at 203.0.113.2
-`R4(config)#ip route 0.0.0.0 0.0.0.0 203.0.113.2`
+```R4(config)#ip route 0.0.0.0 0.0.0.0 203.0.113.2```
 
 15. Ensure that all other routers learn via OSPF how to reach the Internet.
 ```
