@@ -18,19 +18,19 @@ Used devices:
 7. What will the OSPF cost be on the FastEthernet links? Verify this
 8. What effect does this have on the cost to the 10.1.2.0/24 network from R1?
 
-##OSPF Cost
+## OSPF Cost
 9. There are two possible paths which R1 could use to reach the 10.1.2.0/24 network – either through R2 or R5. Which route is in the routing table?
 10. Change this so that traffic from R1 to 10.1.2.0/24 will be load balanced via both R2 and R5
 11. Verify that traffic to the 10.1.2.0/24 network from R1 is load balanced via both R2 and R5
 
-##Default Route Injection
+## Default Route Injection
 12. Ensure that all routers have a route to the 203.0.113.0/24 network. Internal routes must not be advertised to the Service Provider at 203.0.113.2
 13. Verify that all routers have a path to the 203.0.113.0/24 network
 14. Configure a default static route on R4 to the Internet via the service provider at 203.0.113.2
 15. Ensure that all other routers learn via OSPF how to reach the Internet
 16. Verify all routers have a route to the Internet
 
-##Multi-Area OSPF
+## Multi-Area OSPF
 17. Convert the network to use multi-area OSPF. R3 and R4 should be backbone routers, R1 a normal router in Area 1, and R2 and R5 ABRs as shown in the diagram below ![Areas](https://github.com/devi1/Labs/blob/master/CCNA/OSPF/areas.png) 
 18. Verify the router’s interfaces are in the correct areas
 19. Verify the routers have formed adjacencies with each other
