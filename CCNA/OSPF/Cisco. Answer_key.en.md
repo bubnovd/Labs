@@ -2,8 +2,8 @@
 
 1. Enable a loopback interface on each router. Use the IP address 192.168.0.x/32, where ‘x’ is the router number. For example 192.168.0.3/32 on R3.
 On every router:
-`R1(config)#interface loopback0
-R1(config-if)#ip address 192.168.0.1 255.255.255.255`
+    R1(config)#interface loopback0
+    R1(config-if)#ip address 192.168.0.1 255.255.255.255
 
 2. Enable single area OSPF on every router. Ensure all networks except 203.0.113.0/24 are advertised.
 On every router:
