@@ -82,15 +82,15 @@ O 192.168.0.4 [110/3] via 10.0.3.2, 00:03:16, FastEthernet3/0
 O 192.168.0.5 [110/2] via 10.0.3.2, 00:03:16, FastEthernet3/0
 ```
 
-6. Set the reference bandwidth so that a 10 Mbps interface will have a cost of 1. Remember to do this on all routers.
+6. Set the reference bandwidth so that a 1000 Mbps interface will have a cost of 1. Remember to do this on all routers.
 
 ```
 R1(config)#router ospf 1
-R1(config-router)#auto-cost reference-bandwidth 10000
+R1(config-router)#auto-cost reference-bandwidth 1000
 ```
 
-7. What will the OSPF cost be on the FastEthernet links? Verify this.
-OSPF Cost = Reference bandwidth / Interface bandwidth. 100000 / 100 = 1000
+7. What will the OSPF cost be on the Ethernet links? Verify this.
+OSPF Cost = Reference bandwidth / Interface bandwidth. 1000 / 10 = 100
 
 ```
 R1#show ip ospf interface FastEthernet 0/0
@@ -122,7 +122,7 @@ Suppress hello for 0 neighbor(s)
 ```
 
 8. What effect does this have on the cost to the 10.1.2.0/24 network from R1?
-The cost changes from 3 to 3000.
+The cost changes from 30 to 300
 Before reference bandwidth change:
 
 ```
@@ -146,17 +146,17 @@ C 10.0.2.0/24 is directly connected, FastEthernet2/0
 L 10.0.2.1/32 is directly connected, FastEthernet2/0
 C 10.0.3.0/24 is directly connected, FastEthernet3/0
 L 10.0.3.1/32 is directly connected, FastEthernet3/0
-O 10.1.0.0/24 [110/2] via 10.0.0.2, 00:03:16, FastEthernet0/0
-O 10.1.1.0/24 [110/3] via 10.0.3.2, 00:03:16, FastEthernet3/0
+O 10.1.0.0/24 [110/20] via 10.0.0.2, 00:03:16, FastEthernet0/0
+O 10.1.1.0/24 [110/30] via 10.0.3.2, 00:03:16, FastEthernet3/0
 [110/3] via 10.0.0.2, 00:03:16, FastEthernet0/0
-O 10.1.2.0/24 [110/3] via 10.0.3.2, 00:03:16, FastEthernet3/0
-O 10.1.3.0/24 [110/2] via 10.0.3.2, 00:03:16, FastEthernet3/0
+O 10.1.2.0/24 [110/30] via 10.0.3.2, 00:03:16, FastEthernet3/0
+O 10.1.3.0/24 [110/20] via 10.0.3.2, 00:03:16, FastEthernet3/0
 192.168.0.0/32 is subnetted, 5 subnets
 C 192.168.0.1 is directly connected, Loopback0
-O 192.168.0.2 [110/2] via 10.0.0.2, 00:03:16, FastEthernet0/0
-O 192.168.0.3 [110/3] via 10.0.0.2, 00:03:16, FastEthernet0/0
-O 192.168.0.4 [110/3] via 10.0.3.2, 00:03:16, FastEthernet3/0
-O 192.168.0.5 [110/2] via 10.0.3.2, 00:03:16, FastEthernet3/0
+O 192.168.0.2 [110/20] via 10.0.0.2, 00:03:16, FastEthernet0/0
+O 192.168.0.3 [110/30] via 10.0.0.2, 00:03:16, FastEthernet0/0
+O 192.168.0.4 [110/30] via 10.0.3.2, 00:03:16, FastEthernet3/0
+O 192.168.0.5 [110/20] via 10.0.3.2, 00:03:16, FastEthernet3/0
 ```
 After reference bandwidth change:
 ```
@@ -180,17 +180,17 @@ C 10.0.2.0/24 is directly connected, FastEthernet2/0
 L 10.0.2.1/32 is directly connected, FastEthernet2/0
 C 10.0.3.0/24 is directly connected, FastEthernet3/0
 L 10.0.3.1/32 is directly connected, FastEthernet3/0
-O 10.1.0.0/24 [110/2000] via 10.0.0.2, 00:00:22, FastEthernet0/0
-O 10.1.1.0/24 [110/3000] via 10.0.3.2, 00:00:38, FastEthernet3/0
+O 10.1.0.0/24 [110/200] via 10.0.0.2, 00:00:22, FastEthernet0/0
+O 10.1.1.0/24 [110/300] via 10.0.3.2, 00:00:38, FastEthernet3/0
 [110/3000] via 10.0.0.2, 00:00:22, FastEthernet0/0
-O 10.1.2.0/24 [110/3000] via 10.0.3.2, 00:00:39, FastEthernet3/0
-O 10.1.3.0/24 [110/2000] via 10.0.3.2, 00:00:39, FastEthernet3/0
+O 10.1.2.0/24 [110/300] via 10.0.3.2, 00:00:39, FastEthernet3/0
+O 10.1.3.0/24 [110/200] via 10.0.3.2, 00:00:39, FastEthernet3/0
 192.168.0.0/32 is subnetted, 5 subnets
 C 192.168.0.1 is directly connected, Loopback0
-O 192.168.0.2 [110/1001] via 10.0.0.2, 00:00:23, FastEthernet0/0
-O 192.168.0.3 [110/2001] via 10.0.0.2, 00:00:23, FastEthernet0/0
-O 192.168.0.4 [110/2001] via 10.0.3.2, 00:00:39, FastEthernet3/0
-O 192.168.0.5 [110/1001] via 10.0.3.2, 00:00:39, FastEthernet3/0
+O 192.168.0.2 [110/101] via 10.0.0.2, 00:00:23, FastEthernet0/0
+O 192.168.0.3 [110/201] via 10.0.0.2, 00:00:23, FastEthernet0/0
+O 192.168.0.4 [110/101] via 10.0.3.2, 00:00:39, FastEthernet3/0
+O 192.168.0.5 [110/101] via 10.0.3.2, 00:00:39, FastEthernet3/0
 ```
 ## OSPF Cost
 
@@ -229,23 +229,24 @@ O 192.168.0.3 [110/2001] via 10.0.0.2, 00:00:23, FastEthernet0/0
 O 192.168.0.4 [110/2001] via 10.0.3.2, 00:00:39, FastEthernet3/0
 O 192.168.0.5 [110/1001] via 10.0.3.2, 00:00:39, FastEthernet3/0
 ```
-10. Change this so that traffic from R1 to 10.1.2.0/24 will be load balanced via both R2 and R5. Since we changed the reference bandwidth, all interfaces have a cost of 1000. The current path from R1 > R5 > R4 has a cost of 3000 (the cost of the destination interface itself is also counted in the total cost).
+10. Change this so that traffic from R1 to 10.1.2.0/24 will be load balanced via both R2 and R5. Since we changed the reference bandwidth, all interfaces have a cost of 1. The current path from R1 > R5 > R4 has a cost of 300 (the cost of the destination interface itself is also counted in the total cost).
 
-The path from R1 > R2 > R3 > R4 has a cost of 4000.
+The path from R1 > R2 > R3 > R4 has a cost of 400.
 
-The easiest way to configure both paths to have the same cost is to configure the links from R1 > R5 and R5 > R4 to have a cost of 1500 each. (R1 > R5 = 1500, plus R5 > R4 = 1500, plus cost of 10.1.2.0/24 interface on R4 = 1000. Total = 4000).
+The easiest way to configure both paths to have the same cost is to configure the links from R1 > R5 and R5 > R4 to have a cost of 150 each. (R1 > R5 = 150, plus R5 > R4 = 150, plus cost of 10.1.2.0/24 interface on R4 = 100. Total = 400).
 ```
 R1(config)#int f3/0
-R1(config-if)#ip ospf cost 1500
+R1(config-if)#ip ospf cost 150
 
 R5(config)#int f2/0
-R5(config-if)# ip ospf cost 1500
+R5(config-if)# ip ospf cost 150
 R5(config)#int f3/0
-R5(config-if)# ip ospf cost 1500
+R5(config-if)# ip ospf cost 150
 
 R4(config)#int f2/0
-R4(config-if)# ip ospf cost 1500
+R4(config-if)# ip ospf cost 150
 ```
+
 11. Verify that traffic to the 10.1.2.0/24 network from R1 is load balanced via both R2 and R5.
 ```
 R1#sh ip route
@@ -328,6 +329,9 @@ O 192.168.0.5 [110/1501] via 10.0.3.2, 00:48:55, FastEthernet3/0
 O 203.0.113.0/24 [110/4000] via 10.0.3.2, 00:01:46, FastEthernet3/0
 [110/4000] via 10.0.0.2, 00:01:46, FastEthernet0/0
 ```
+
+13.Verify that all routers have a path to the 203.0.113.0/24 network
+
 14. Configure a default static route on R4 to the Internet via the service provider at 203.0.113.2
 ```R4(config)#ip route 0.0.0.0 0.0.0.0 203.0.113.2```
 
@@ -409,7 +413,7 @@ R2(config-router)#no network 10.0.0.0 0.255.255.255 area 0
 R2(config-router)#network 10.1.0.0 0.0.0.255 area 0
 R2(config-router)#network 10.0.0.0 0.0.0.255 area 1
 ```
-R5 interface FastEthernet 2/0 should remain in Area 0. FastEthernet 3/0 needs to be reconfigured to be in Area 1.
+R5 interface FastEthernet 0/3 should remain in Area 0. FastEthernet 0/2 needs to be reconfigured to be in Area 1.
 ```
 R5#sh run | section ospf
 ip ospf cost 1500

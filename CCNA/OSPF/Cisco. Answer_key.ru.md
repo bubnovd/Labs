@@ -82,15 +82,15 @@ O 192.168.0.4 [110/3] via 10.0.3.2, 00:03:16, FastEthernet3/0
 O 192.168.0.5 [110/2] via 10.0.3.2, 00:03:16, FastEthernet3/0
 ```
 
-6. Установить reference bandwidth в 10 Mbps.
+6. Установить reference bandwidth в 1000 Mbps.
 На всех роутерах
 ```
 R1(config)#router ospf 1
-R1(config-router)#auto-cost reference-bandwidth 10000
+R1(config-router)#auto-cost reference-bandwidth 1000
 ```
 
-7. Какая стоимость у FastEthernet интерфейсов? Почему?
-OSPF Cost = Reference bandwidth / Interface bandwidth. 100000 / 100 = 1000
+7. Какая стоимость стала у Ethernet интерфейсов? Почему?
+OSPF Cost = Reference bandwidth / Interface bandwidth. 1000 / 10 = 100
 ```
 R1#show ip ospf interface FastEthernet 0/0
 FastEthernet0/0 is up, line protocol is up
@@ -121,8 +121,8 @@ Suppress hello for 0 neighbor(s)
 ```
 
 8. Как изменение reference bandwidth влияет на маршрут к 10.1.2.0/24 на R1?
-The cost changes from 3 to 3000.
-Before reference bandwidth change:
+Стоимость интерфейса изменится с 30 до 300.
+До изменения reference bandwidth:
 
 ```
 R1#sh ip route
@@ -145,19 +145,19 @@ C 10.0.2.0/24 is directly connected, FastEthernet2/0
 L 10.0.2.1/32 is directly connected, FastEthernet2/0
 C 10.0.3.0/24 is directly connected, FastEthernet3/0
 L 10.0.3.1/32 is directly connected, FastEthernet3/0
-O 10.1.0.0/24 [110/2] via 10.0.0.2, 00:03:16, FastEthernet0/0
-O 10.1.1.0/24 [110/3] via 10.0.3.2, 00:03:16, FastEthernet3/0
+O 10.1.0.0/24 [110/20] via 10.0.0.2, 00:03:16, FastEthernet0/0
+O 10.1.1.0/24 [110/30] via 10.0.3.2, 00:03:16, FastEthernet3/0
 [110/3] via 10.0.0.2, 00:03:16, FastEthernet0/0
-O 10.1.2.0/24 [110/3] via 10.0.3.2, 00:03:16, FastEthernet3/0
-O 10.1.3.0/24 [110/2] via 10.0.3.2, 00:03:16, FastEthernet3/0
+O 10.1.2.0/24 [110/30] via 10.0.3.2, 00:03:16, FastEthernet3/0
+O 10.1.3.0/24 [110/20] via 10.0.3.2, 00:03:16, FastEthernet3/0
 192.168.0.0/32 is subnetted, 5 subnets
 C 192.168.0.1 is directly connected, Loopback0
-O 192.168.0.2 [110/2] via 10.0.0.2, 00:03:16, FastEthernet0/0
-O 192.168.0.3 [110/3] via 10.0.0.2, 00:03:16, FastEthernet0/0
-O 192.168.0.4 [110/3] via 10.0.3.2, 00:03:16, FastEthernet3/0
-O 192.168.0.5 [110/2] via 10.0.3.2, 00:03:16, FastEthernet3/0
+O 192.168.0.2 [110/20] via 10.0.0.2, 00:03:16, FastEthernet0/0
+O 192.168.0.3 [110/30] via 10.0.0.2, 00:03:16, FastEthernet0/0
+O 192.168.0.4 [110/30] via 10.0.3.2, 00:03:16, FastEthernet3/0
+O 192.168.0.5 [110/20] via 10.0.3.2, 00:03:16, FastEthernet3/0
 ```
-After reference bandwidth change:
+После изменения reference bandwidth:
 ```
 R1#sh ip route
 Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
@@ -179,22 +179,22 @@ C 10.0.2.0/24 is directly connected, FastEthernet2/0
 L 10.0.2.1/32 is directly connected, FastEthernet2/0
 C 10.0.3.0/24 is directly connected, FastEthernet3/0
 L 10.0.3.1/32 is directly connected, FastEthernet3/0
-O 10.1.0.0/24 [110/2000] via 10.0.0.2, 00:00:22, FastEthernet0/0
-O 10.1.1.0/24 [110/3000] via 10.0.3.2, 00:00:38, FastEthernet3/0
+O 10.1.0.0/24 [110/200] via 10.0.0.2, 00:00:22, FastEthernet0/0
+O 10.1.1.0/24 [110/300] via 10.0.3.2, 00:00:38, FastEthernet3/0
 [110/3000] via 10.0.0.2, 00:00:22, FastEthernet0/0
-O 10.1.2.0/24 [110/3000] via 10.0.3.2, 00:00:39, FastEthernet3/0
-O 10.1.3.0/24 [110/2000] via 10.0.3.2, 00:00:39, FastEthernet3/0
+O 10.1.2.0/24 [110/300] via 10.0.3.2, 00:00:39, FastEthernet3/0
+O 10.1.3.0/24 [110/200] via 10.0.3.2, 00:00:39, FastEthernet3/0
 192.168.0.0/32 is subnetted, 5 subnets
 C 192.168.0.1 is directly connected, Loopback0
-O 192.168.0.2 [110/1001] via 10.0.0.2, 00:00:23, FastEthernet0/0
-O 192.168.0.3 [110/2001] via 10.0.0.2, 00:00:23, FastEthernet0/0
-O 192.168.0.4 [110/2001] via 10.0.3.2, 00:00:39, FastEthernet3/0
-O 192.168.0.5 [110/1001] via 10.0.3.2, 00:00:39, FastEthernet3/0
+O 192.168.0.2 [110/101] via 10.0.0.2, 00:00:23, FastEthernet0/0
+O 192.168.0.3 [110/201] via 10.0.0.2, 00:00:23, FastEthernet0/0
+O 192.168.0.4 [110/201] via 10.0.3.2, 00:00:39, FastEthernet3/0
+O 192.168.0.5 [110/101] via 10.0.3.2, 00:00:39, FastEthernet3/0
 ```
 ## OSPF Cost
 
-9. There are two possible paths which R1 could use to reach the 10.1.2.0/24 network – either through R2 or R5. Which route is in the routing table?
-The path via R5 at 10.0.3.2.
+9. Сеть 10.1.2.0/24 для R1 доступна двумя путями - через R2 и R3. Какой путь установлен в таблице маршрутизации? Почему?
+Маршрут от R5 к 10.0.3.2.
 ```
 R1#sh ip route
 Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
@@ -228,24 +228,22 @@ O 192.168.0.3 [110/2001] via 10.0.0.2, 00:00:23, FastEthernet0/0
 O 192.168.0.4 [110/2001] via 10.0.3.2, 00:00:39, FastEthernet3/0
 O 192.168.0.5 [110/1001] via 10.0.3.2, 00:00:39, FastEthernet3/0
 ```
-10. Change this so that traffic from R1 to 10.1.2.0/24 will be load balanced via both R2 and R5. Since we changed the reference bandwidth, all interfaces have a cost of 1000. The current path from R1 > R5 > R4 has a cost of 3000 (the cost of the destination interface itself is also counted in the total cost).
-
-The path from R1 > R2 > R3 > R4 has a cost of 4000.
-
-The easiest way to configure both paths to have the same cost is to configure the links from R1 > R5 and R5 > R4 to have a cost of 1500 each. (R1 > R5 = 1500, plus R5 > R4 = 1500, plus cost of 10.1.2.0/24 interface on R4 = 1000. Total = 4000).
+10. Реализовать прохождение трафика от R1 к 10.1.2.0/24 через R2 и R5 одновременно (балансировка).
+После изменения reference bandwidth все интерфейсы имеют стоимость 1. Сейчас маршрут к 10.1.2.0/24 через R1 > R5 > R4 имеет cost 300. Маршрут через R1 > R2 > R3 > R4 имеет cost 400. 
+Чтобы сделать одинаковую стоимость на оба пути трафика, необходимо изменить cost интерфейсов R1 > R5 и R5 > R4 на 150. Получим R1 > R5 = 150, плюс R5 > R4 = 150, плюс стоимость интерфейса к 10.1.2.0/24 = 100. Итого 400
 ```
 R1(config)#int f3/0
-R1(config-if)#ip ospf cost 1500
+R1(config-if)#ip ospf cost 150
 
 R5(config)#int f2/0
-R5(config-if)# ip ospf cost 1500
+R5(config-if)# ip ospf cost 150
 R5(config)#int f3/0
-R5(config-if)# ip ospf cost 1500
+R5(config-if)# ip ospf cost 150
 
 R4(config)#int f2/0
-R4(config-if)# ip ospf cost 1500
+R4(config-if)# ip ospf cost 150
 ```
-11. Verify that traffic to the 10.1.2.0/24 network from R1 is load balanced via both R2 and R5.
+11. Проверить, что сеть 10.1.2.0/24 доступна от R1 двумя путями
 ```
 R1#sh ip route
 Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
@@ -281,9 +279,10 @@ O 192.168.0.4 [110/3001] via 10.0.3.2, 00:00:32, FastEthernet3/0
 O 192.168.0.5 [110/1501] via 10.0.3.2, 00:26:30, FastEthernet3/0
 ```
 
-## Default Route Injection
+## Анонсирование маршрута по умолчанию
 
-12. Ensure that all routers have a route to the 203.0.113.0/24 network. Internal routes must not be advertised to the Service Provider at 203.0.113.2. The 203.0.113.0/24 network must be added to the OSPF process on R4, and interface FastEthernet 3/0 facing the service provider configured as a passive interface to avoid sending out internal network information.
+12. Анонсировать сеть 203.0.113.0/24. Предотвратить анонсирование своих маршрутов в Интернет.
+Добавить сеть 203.0.113.0/24 в OSPF на R4. Интерфейс Ethernet 0/3 сделать пассивным, чтобы предовратить анонсирование LSA в сеть провайдера.
 
 ```
 R4(config)#router ospf 1
@@ -327,16 +326,19 @@ O 192.168.0.5 [110/1501] via 10.0.3.2, 00:48:55, FastEthernet3/0
 O 203.0.113.0/24 [110/4000] via 10.0.3.2, 00:01:46, FastEthernet3/0
 [110/4000] via 10.0.0.2, 00:01:46, FastEthernet0/0
 ```
-14. Configure a default static route on R4 to the Internet via the service provider at 203.0.113.2
+
+13. Убедиться, что все роутеры получили маршрут к 203.0.113.0/24
+
+14. Добавить маршрут по умолчанию на R4 с использованием шлюза 203.0.113.2
 ```R4(config)#ip route 0.0.0.0 0.0.0.0 203.0.113.2```
 
-15. Ensure that all other routers learn via OSPF how to reach the Internet.
+15. Анонсировать маршрут по умолчанию в OSPF
 ```
 R4(config)#router ospf 1
 R4(config-router)#default-information originate
 ```
 
-16. Verify all routers have a route to the Internet.
+16. Проверить, что все роутеры получили маршрут по умолчанию
 ```
 R1#sh ip route
 Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
@@ -375,13 +377,13 @@ O 192.168.0.5 [110/1501] via 10.0.3.2, 00:52:03, FastEthernet3/0
 O 203.0.113.0/24 [110/4000] via 10.0.3.2, 00:04:54, FastEthernet3/0
 [110/4000] via 10.0.0.2, 00:04:54, FastEthernet0/0
 ```
-## Multi-Area OSPF
 
-17. Convert the network to use multi-area OSPF. R3 and R4 should be backbone routers, R1 a normal router in Area 1, and R2 and R5 ABRs as shown in the diagram below.
+## Области OSPF
 
-R3 and R4 require no change as all their interfaces are already in Area 0.
+17. Разбить домен OSPF на области (регионы). R3 и R4 оставить в backbone. R1 - internal router в Area 1. R2, R5 - ABR ![Areas](https://github.com/devi1/Labs/blob/master/CCNA/OSPF/areas.png)
+R3 и R4 не требуют изменений, так как их интерфейсы уже в Are 0
+Интерфейсы R1 необходимо перевести из Area 0 в Area 1
 
-R1’s interfaces need to be reconfigured to be in Area 1 rather than Area 0.
 ```
 R1#show run | section ospf
 ip ospf cost 1500
@@ -394,7 +396,7 @@ R1(config)#router ospf 1
 R1(config-router)#network 10.0.0.0 0.255.255.255 area 1
 R1(config-router)#network 192.168.0.0 0.0.0.255 area 1
 ```
-R2 interface FastEthernet 1/0 should remain in Area 0. FastEthernet 0/0 needs to be reconfigured to be in Area 1. I used a 10.0.0.0/8 network statement originally so I need to remove that and add more granular statements.
+У R2 интерфейс Ethernet 1/0 остается в Area 0. Ethernet 0/0 перевести в Area 1. Ранее сети подключались к OSPF с широким префиксом 10.0.0.0/8. Сейчас эти сети разделяются на разные области, поэтому строку с 10.0.0.0/8 нужно удалить и более точно указать сети.
 
 ```
 R2#sh run | section ospf
@@ -408,7 +410,7 @@ R2(config-router)#no network 10.0.0.0 0.255.255.255 area 0
 R2(config-router)#network 10.1.0.0 0.0.0.255 area 0
 R2(config-router)#network 10.0.0.0 0.0.0.255 area 1
 ```
-R5 interface FastEthernet 2/0 should remain in Area 0. FastEthernet 3/0 needs to be reconfigured to be in Area 1.
+У R5 интерфейс Ethernet 0/3 остается в Area 0. Ethernet 0/2 перевести в Area 1
 ```
 R5#sh run | section ospf
 ip ospf cost 1500
@@ -423,7 +425,8 @@ R5(config-router)#no network 10.0.0.0 0.255.255.255 area 0
 R5(config-router)#network 10.1.3.0 0.0.0.255 area 0
 R5(config-router)#network 10.0.3.0 0.0.0.255 area 1
 ```
-18. Verify the router’s interfaces are in the correct areas.
+
+18. Проверить, что интерфейсы маршрутизаторов принадлежат корректным областям
 ```
 R2#sh ip ospf interface brief
 Interface PID Area IP Address/Mask Cost State Nbrs F/C
@@ -431,14 +434,18 @@ Lo0 1 0 192.168.0.2/32 1 LOOP 0/0
 Fa1/0 1 0 10.1.0.2/24 1000 BDR 1/1
 Fa0/0 1 1 10.0.0.2/24 1000 BDR 1/1
 ```
-19. Verify the routers have formed adjacencies with each other.
+
+19. Проверить состояние соседства/смежности
 ```
 R1#sh ip ospf neighbor
 Neighbor ID Pri State Dead Time Address Interface
 192.168.0.5 1 FULL/BDR 00:00:33 10.0.3.2 FastEthernet3/0
 192.168.0.2 1 FULL/BDR 00:00:31 10.0.0.2 FastEthernet0/0
 ```
-20. What change do you expect to see on R1’s routing table? Verify this (give the routing table a few seconds to converge). The networks beyond R2 and R5 will appear as Inter Area routes (apart from the default route which will appear as an external route as it was redistributed into OSPF).
+
+20. Какие изменения произошли в таблице маршрутизации R1?
+Сети за R2 и R5 обозначены как Inter Area маршруты. Кроме маршрута по умолчанию, который обозначен как external
+
 ```
 R1#sh ip route
 Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
@@ -479,10 +486,10 @@ O IA 203.0.113.0/24 [110/4000] via 10.0.3.2, 00:05:54, FastEthernet3/0
 [110/4000] via 10.0.0.2, 00:10:20, FastEthernet0/0
 ```
 
-21. Do you see less routes in R1’s routing table? Why or why not?
-R1 has the same amount of routes in its routing table because OSPF does not perform automatic summarisation. You must configure manual summarisation to reduce the size of the routing table.
+21. Изменилось ли количество маршрутов в таблице маршрутизации R1? Почему?
+Количество маршрутов в таблице маршрутизации R1 не изменилось. Это связано с тем, что не применялась аггрегация (суммирование) маршрутов OSPF. Чтобы уменьшить количество маршуртов в таблицах маршуртизации, необходимо вручную сконфигурировать суммирование.
 
-22. Configure summary routes on the Area Border Routers for the 10.0.0.0/16 and 10.1.0.0/16 networks.
+22. Настроить суммирование маршрутов на ABR для сетей 10.0.0.0/16 и 10.1.0.0/16
 ```
 R2(config)#router ospf 1
 R2(config-router)#area 0 range 10.1.0.0 255.255.0.0
@@ -493,7 +500,7 @@ R5(config-if)#router ospf 1
 R5(config-router)#area 0 range 10.1.0.0 255.255.0.0
 R5(config-router)#area 1 range 10.0.0.0 255.255.0.0
 ```
-23. Verify R1 now sees a single summary route for 10.1.0.0/16 rather than individual routes for the 10.1.x.x networks.
+23. Проверить, что R1 получил агрегированный маршрут до 10.1.0.0/16 вместо точных маршрутов до каждой подсети
 ```
 R1#sh ip route
 Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
@@ -527,7 +534,7 @@ O IA 192.168.0.4 [110/3001] via 10.0.3.2, 00:26:43, FastEthernet3/0
 O IA 203.0.113.0/24 [110/4000] via 10.0.3.2, 00:26:43, FastEthernet3/0
 [110/4000] via 10.0.0.2, 00:26:43, FastEthernet0/0
 ```
-24. Verify R1 is receiving a summary route for the 10.1.0.0/16 network from both R2 and R5.
+24. Проверить, что R1 получил два агрегированных маршрута до 10.1.0.0/16 - от R2 и R5
 ```
 R1#sh ip ospf database
 
@@ -571,18 +578,18 @@ Type-5 AS External Link States
 Link ID ADV Router Age Seq# Checksum Tag
 0.0.0.0 192.168.0.4 207 0x80000002 0x00152F 1
 ```
-25. R1 is routing traffic to 10.1.0.0/16 via R2 only. Why is it not load balancing the traffic through both R2 and R5?
-We configured the link from R1 to R5 to have a higher cost than the link from R1 to R2 earlier.
+25. R1 отправляет трафик до 10.1.0.0/16 только через R2. Почему нет балансировки?
+Стоимость интерфейса R1 > R5 выше, чем у R1 > R2
 
 ```
-R1#sh run int f3/0
+R1#sh run int e0/2
 Building configuration...
 
 Current configuration : 100 bytes
 !
-interface FastEthernet3/0
+interface Ethernet0/2
 ip address 10.0.3.1 255.255.255.0
-ip ospf cost 1500
+ip ospf cost 150
 duplex full
 end
 ```

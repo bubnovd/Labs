@@ -14,7 +14,7 @@ Used devices:
 3. What do you expect the OSPF Router ID to be on R1? Verify this
 4. Verify the routers have formed adjacencies with each other
 5. Verify all 10.x.x.x networks and loopbacks are in the router’s routing tables
-6. Set the reference bandwidth so that a 10 Mbps interface will have a cost of 1
+6. Set the reference bandwidth so that a 1000 Mbps interface will have a cost of 1
 7. What will the OSPF cost be on the FastEthernet links? Verify this
 8. What effect does this have on the cost to the 10.1.2.0/24 network from R1?
 
