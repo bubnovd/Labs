@@ -1,3 +1,4 @@
+[<img width=30 height=20 src="../../images/en.png">](Cisco.Answer_key.en.md)  [<img width=30 height=20 src="../../images/ru.png">](Cisco.Answer_key.ru.md)
 ## OSPF Basic Configuration
 
 1. Enable a loopback interface on each router. Use the IP address 192.168.0.x/32, where ‘x’ is the router number. For example 192.168.0.3/32 on R3.
@@ -382,7 +383,7 @@ O 203.0.113.0/24 [110/4000] via 10.0.3.2, 00:04:54, FastEthernet3/0
 ```
 ## Multi-Area OSPF
 
-17. Convert the network to use multi-area OSPF. R3 and R4 should be backbone routers, R1 a normal router in Area 1, and R2 and R5 ABRs as shown in the diagram below.
+17. Convert the network to use multi-area OSPF. R3 and R4 should be backbone routers, R1 a normal router in Area 1, and R2 and R5 ABRs as shown in the diagram below.[Areas](https://github.com/devi1/Labs/blob/master/CCNA/OSPF/areas.png)
 
 R3 and R4 require no change as all their interfaces are already in Area 0.
 

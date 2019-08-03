@@ -6,6 +6,7 @@
 * Switch - `L2-ADVENTERPRISEK9-M-15.2-20150703`
 
 *Из-за ограничений образов Cisco IOU, применяемых в лабе, все интерфейсы - десятимегабитный Ethernet. В оригинальных лабах в 6 пункте требуется установить reference-bandwidth в 10 Gbps. В этих лабах ставим 10 Mbps*
+Решение лабы с [Cisco](Cisco.Answer_key.ru.md)
 
 ![Lab1](https://github.com/devi1/Labs/blob/master/CCNA/OSPF/lab1.png) 
 ## Основы OSPF
