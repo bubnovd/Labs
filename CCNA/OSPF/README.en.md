@@ -5,7 +5,7 @@ Used devices:
 - CCNA_OSPF - Cisco:
   - Router - `L3-ADVENTERPRISEK9-M-15.4-2T`
   - Switch - `L2-ADVENTERPRISEK9-M-15.2-20150703`
-- CCNA_SPF_ROS - Mikrotik:
+- CCNA_OSPF_ROS - Mikrotik:
   - Router - `RouterOS CHR 6.45.1`
   - Switch - `L2-ADVENTERPRISEK9-M-15.2-20150703`
 
