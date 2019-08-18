@@ -1,13 +1,18 @@
 [<img width=30 height=20 src="../../images/en.png">](README.en.md)  [<img width=30 height=20 src="../../images/ru.png">](README.md)
 # OSPF
-В файле `CCNA_OSPF.zip` находится схема сети для импорта в эмулятор EVE-NG.
+В файлах `CCNA_OSPF.zip` и `CCNA_OSPF_ROS.zip` находятся схемы сети для импорта в эмулятор EVE-NG.
 Используемые устройства:
-* Router - `L3-ADVENTERPRISEK9-M-15.4-2T`
-* Switch - `L2-ADVENTERPRISEK9-M-15.2-20150703`
+- CCNA_OSPF - Cisco:
+  - Router - `L3-ADVENTERPRISEK9-M-15.4-2T`
+  - Switch - `L2-ADVENTERPRISEK9-M-15.2-20150703`
+- CCNA_SPF_ROS - Mikrotik:
+  - Router - `RouterOS CHR 6.45.1`
+  - Switch - `L2-ADVENTERPRISEK9-M-15.2-20150703`
+
 
 *Из-за ограничений образов Cisco IOU, применяемых в лабе, все интерфейсы - десятимегабитный Ethernet. В оригинальных лабах в 6 пункте требуется установить reference-bandwidth в 10 Gbps. В этих лабах ставим 10 Mbps*
 
-Решение лабы с [Cisco](Cisco.Answer_key.ru.md)
+Решение лабы с [Cisco](Cisco.Answer_key.ru.md), [Mikrotik](Mikrotik.Answer_key.ru.md)
 
 ![Lab1](https://github.com/devi1/Labs/blob/master/CCNA/OSPF/lab1.png) 
 ## Основы OSPF

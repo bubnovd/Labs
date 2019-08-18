@@ -1,9 +1,13 @@
 [<img width=30 height=20 src="../../images/en.png">](README.en.md)  [<img width=30 height=20 src="../../images/ru.png">](README.md)
 # OSPF
-File `CCNA_OSPF.zip` contains network topology for import to EVE-NG.
+Files `CCNA_OSPF.zip` and `CCNA_OSPF_ROS.zip` contains network topology for import to EVE-NG.
 Used devices:
-* Router - `L3-ADVENTERPRISEK9-M-15.4-2T`
-* Switch - `L2-ADVENTERPRISEK9-M-15.2-20150703`
+- CCNA_OSPF - Cisco:
+  - Router - `L3-ADVENTERPRISEK9-M-15.4-2T`
+  - Switch - `L2-ADVENTERPRISEK9-M-15.2-20150703`
+- CCNA_SPF_ROS - Mikrotik:
+  - Router - `RouterOS CHR 6.45.1`
+  - Switch - `L2-ADVENTERPRISEK9-M-15.2-20150703`
 
 *Because of limits of Cisco IOU images all network interfaces have only ten-megabites Ethernet. In original labs in pt. 6 need to set reference-bandwidth in 10 Gbps. But in this labs set to 10 Mbps*
 
