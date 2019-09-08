@@ -20,18 +20,22 @@ Used devices:
 4. Convert the existing uplinks from SW4 to SW1 and SW2 to PAgP EtherChannel
 5. Verify the EtherChannels come up
 
-### Default Route Injection
+### Static EtherChannel Configuration
 6. Convert the existing uplinks between SW1 and SW2 to static EtherChannel
 7. Verify the EtherChannels come up
 8. How much total bandwidth is available between the PCs attached to SW3 and the PCs attached to SW4 now?
 
-## Multi-Area Switching
-17. Convert the network to use multi-area Switching. R3 and R4 should be backbone routers, R1 a normal router in Area 1, and R2 and R5 ABRs as shown in the diagram below ![Areas](https://github.com/devi1/Labs/blob/master/CCNA/Switching/areas.png) 
-18. Verify the router’s interfaces are in the correct areas
-19. Verify the routers have formed adjacencies with each other
-20. What change do you expect to see on R1’s routing table? Verify this (give the routing table a few seconds to converge)
-21. Do you see less routes in R1’s routing table? Why or why not?
-22. Configure summary routes on the Area Border Routers for the 10.0.0.0/16 and 10.1.0.0/16 networks
-23. Verify R1 now sees a single summary route for 10.1.0.0/16 rather than individual routes for the 10.1.x.x networks
-24. Verify R1 is receiving a summary route for the 10.1.0.0/16 network from both R2 and R5
-25. R1 is routing traffic to 10.1.0.0/16 via R2 only. Why is it not load balancing the traffic through both R2 and R5?
+## VTP, Access and Trunk Ports
+9. All routers and switches are in a factory default state. View the VLAN database on SW1 to verify no VLANs have been added 
+10. View the default switchport status on the link from SW1 to SW2
+11. Configure SW1 as a VTP Server in the VTP domain bubnovd.net
+12. SW2 must not synchronise its VLAN database with SW1
+13. SW3 and SW4 must learn VLAN information from SW1. VLANs should not be edited on SW3 and SW4
+14. Add the Eng (VID 10), Sales (VID11) and Native (VID 199) VLANs on all switches
+15. Verify the VLANs are in the database on each switch
+16. Configure the trunk links to use VLAN 199 as the native VLAN for better security
+17. Configure the switchports connected to the PCs with the correct VLAN configuration
+18. Verify the VPC1 has connectivity to VPC2
+19. Verify the VPC11 has connectivity to VPC12
+
+>DTP. Надо ли здесь?
