@@ -1,21 +1,15 @@
 [<img width=30 height=20 src="../../images/en.png">](README.en.md)  [<img width=30 height=20 src="../../images/ru.png">](README.md)
-# OSPF
-В файлах `CCNA_Switching.zip` и `CCNA_Switching_ROS.zip` находятся схемы сети для импорта в эмулятор EVE-NG.
+# Switching
+В файле `CCNA_Switching.zip` находится схема сети для импорта в эмулятор EVE-NG.
 Используемые устройства:
 - CCNA_OSPF - Cisco:
   - Router - `L3-ADVENTERPRISEK9-M-15.4-2T`
   - Switch - `L2-ADVENTERPRISEK9-M-15.2-20150703`
 
->- CCNA_OSPF_ROS - Mikrotik:
->  - Router - `RouterOS CHR 6.45.1`
->  - Switch - `L2-ADVENTERPRISEK9-M-15.2-20150703`
 
+*Из-за ограничений образов Cisco IOU, применяемых в лабе, все интерфейсы - десятимегабитный Ethernet*
 
-*Из-за ограничений образов Cisco IOU, применяемых в лабе, все интерфейсы - десятимегабитный Ethernet. В оригинальных лабах в 6 пункте требуется установить reference-bandwidth в 10 Gbps. В этих лабах ставим 10 Mbps*
-
-Решение лабы с [Cisco](Cisco.Answer_key.ru.md), [Mikrotik](Mikrotik.Answer_key.ru.md)
-
-![Lab1](https://github.com/devi1/Labs/blob/master/CCNA/OSPF/lab1.png) 
+![Lab1](https://github.com/devi1/Labs/blob/master/CCNA/Switching/lab1.png) 
 ## Основы OSPF
 1. Создать loopback интерфейс на каждом роутере. Назначить ему адрес 192.168.0.x/32, где x - номер роутера. Например, 192.168.0.3/32 для R3
 2. Создать единую область OSPF на всех роутерах. Анонсировать все сети, кроме 203.0.113.0/24
