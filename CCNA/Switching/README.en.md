@@ -25,7 +25,8 @@ Used devices:
 7. Verify the EtherChannels come up
 8. How much total bandwidth is available between the PCs attached to SW3 and the PCs attached to SW4 now?
 
-## VTP, Access and Trunk Ports
+## VLAN and Inter-VLAN Routing
+### VTP, Access and Trunk Ports
 9. All routers and switches are in a factory default state. View the VLAN database on SW1 to verify no VLANs have been added 
 10. View the default switchport status on the link from SW1 to SW2
 11. Configure SW1 as a VTP Server in the VTP domain bubnovd.net

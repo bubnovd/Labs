@@ -25,7 +25,8 @@
 7. Проверьте, что EtherChannel поднялся
 8. Какая пропускная способность сети между хостами VPC1, VPC11 и VPC2, VPC12 сейчас?
 
-## VTP, Access, Trunk
+## VLAN and Inter-VLAN Routing
+### VTP, Access, Trunk
 9. Маршрутизаторы и коммутаторы в дефолтном состоянии. Убедитесь, что на SW1 нет сконфигурированных VLAN'ов
 10. Проверьте состояние switchport на линке между SW1 и SW2
 11. Настройте SW1 как VTP Server в домене bubnovd.net
