@@ -39,4 +39,4 @@ Used devices:
 18. Verify the VPC1 has connectivity to VPC2
 19. Verify the VPC11 has connectivity to VPC12
 
->DTP. Надо ли здесь?
+>DTP. Is it need here?
