@@ -13,3 +13,4 @@ Labs in `.zip` files. Filename contains vendorname on whose equipment a lab is m
 * CCNA
   * Routing
     * [OSPF](/CCNA/OSPF/README.en.md)
+  * [Switching](/CCNA/Switching/README.en.md)
